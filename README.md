@@ -21,6 +21,10 @@ There is an inbuilt default wordlist which contains thousands of words which bru
 And then just run using <br/>
 **python3 bruder.py**
 
+# Screenshot
+
+![](ss.png)
+
 # Created by
 
 github : [Har1743](https://github.com/Har1743)
