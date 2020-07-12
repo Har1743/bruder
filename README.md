@@ -23,7 +23,7 @@ And then just run using <br/>
 
 # Screenshot
 
-![](ss.png)
+![](s.png)
 
 # Created by
 
