@@ -20,6 +20,7 @@ There is an inbuilt default wordlist which contains thousands of words which bru
 
 And then just run using <br/>
 **python3 bruder.py**
+![alt text](http://192.168.43.48/ss.png)
 
 # Created by
 
