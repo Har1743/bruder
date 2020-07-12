@@ -13,3 +13,7 @@ There is an inbuilt default wordlist which contains thousands of words which bru
 **--invalid, -i :** This help you to know about all the invalid responses.<br/>
 **--all, -a :** This help you to know about all the responses.<br/>
 **--output :** This will save all the output to a file of your desired location.<br/>
+
+# Usage 
+
+Just download using <br/>
