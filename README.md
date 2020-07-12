@@ -23,5 +23,4 @@ And then just run using <br/>
 
 # Created by
 
-[GITHUB : Har1743](https://github.com/Har1743)
-
+github : [Har1743](https://github.com/Har1743)
