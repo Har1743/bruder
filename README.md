@@ -21,8 +21,20 @@ There is an inbuilt default wordlist which contains thousands of words which bru
 And then just run using <br/>
 **python3 bruder.py**
 
-# Screenshots
+**Basic usages**
 
+root@kali:~/$ python3 bruder.py -h <br/>
+usage: bruder.py [-h] --url URL [-v] [-i] [-a] [--output OUTPUT] <br/>
 
- 
+This is directory brute forcing tool --->> BRUDER V1.0 <br/>
+
+optional arguments: 
+  -h, --help       show this help message and exit
+  --url URL        enter the url in the given format [ http://www.example.com
+                   or http://ip_address of the server ]
+  -v, --valid      This will only show valid addresses
+  -i, --invalid    This will only show invalid addresses
+  -a, --all        This will show all valid and invalid addresses
+  --output OUTPUT  This will save the output to a entered file location format
+                   for path [/xyz/xyz/eg_word_list.txt]
 
