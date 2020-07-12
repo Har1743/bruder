@@ -16,4 +16,9 @@ There is an inbuilt default wordlist which contains thousands of words which bru
 
 # Usage 
 
-Just download using <br/>
+**git clone https://github.com/Har1743/bruder.git** <br/>
+
+And then just run using <br/>
+**python3 bruder.py**
+ 
+
