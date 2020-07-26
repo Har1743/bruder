@@ -1,5 +1,6 @@
 import requests
 import argparse
+import sys
 from datetime import datetime
 
 # colored text and background
@@ -26,6 +27,7 @@ def output(path, code, check_url):
             f_o.write(text_i)
     except IOError:
         print("I/O error file or path not found")
+        sys.exit()
 
 
 def main():
@@ -113,6 +115,7 @@ def main():
                                      output(output_path, c.status_code, check_url)
         except IOError:
             prRed("IO ERROR -->> Wordlist not found / Entered host is not valid")
+            sys.exit()
 
     elif w == "2":
         try:
@@ -167,6 +170,7 @@ def main():
 
         except IOError:
             prRed("IO ERROR -->> Entered host is not valid")
+            sys.exit()
 
     print("\n----------------------\n")
     print("Ended at " + str(d))
