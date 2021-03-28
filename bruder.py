@@ -24,7 +24,7 @@ parser.add_argument("--output", type=str, help="This will save the output to a e
                                                    " format for path [/xyz/xyz/eg_word_list.txt]")
     
 parser.add_argument("-e","--extension",help="this will help to enter multiple extension "
-                                                "ex [ php,html,etc]")
+                                                "ex [ .php,.html,etc]")
 
 args = parser.parse_args()
 
