@@ -12,6 +12,7 @@ def prRed(skk): print("\033[91m {}\033[00m" .format(skk))
 def prGreen(skk): print("\033[92m {}\033[00m" .format(skk))
 
 # This function will store the output
+
 parser = argparse.ArgumentParser(description="This is directory brute forcing tool --->> BRUDER V1.0 ")
 
 parser.add_argument("--url", required=True, help="enter the url in the given format "
