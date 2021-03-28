@@ -12,6 +12,32 @@ def prRed(skk): print("\033[91m {}\033[00m" .format(skk))
 def prGreen(skk): print("\033[92m {}\033[00m" .format(skk))
 
 # This function will store the output
+parser = argparse.ArgumentParser(description="This is directory brute forcing tool --->> BRUDER V1.0 ")
+
+parser.add_argument("--url", required=True, help="enter the url in the given format "
+                                                     "[ http://www.example.com or"
+                                                     " http://ip_address of the server ]")
+parser.add_argument("-v", "--valid", action="store_true", help="This will only show valid addresses")
+parser.add_argument("-i", "--invalid", action="store_true", help="This will only show invalid addresses")
+parser.add_argument("-a", "--all", action="store_true", help="This will show all valid and invalid addresses")
+parser.add_argument("--output", type=str, help="This will save the output to a entered file location"
+                                                   " format for path [/xyz/xyz/eg_word_list.txt]")
+    
+parser.add_argument("-e","--extension",help="this will help to enter multiple extension "
+                                                "ex [ php,html,etc]")
+
+args = parser.parse_args()
+
+url = args.url
+
+output_path = args.output
+
+d = datetime.now()
+
+print("\n--------------")
+print("BRUDER V1.0")
+print("By HARDIK")
+print("--------------")
 
 
 def output(path, code, check_url):
@@ -29,32 +55,42 @@ def output(path, code, check_url):
         print("I/O error file or path not found")
         sys.exit()
 
+def Urlcheck(word):
+    check_url = str(url) + "/" + str(word)
+    c = requests.get(check_url)
+    if args.valid:
+        if 200 <= c.status_code < 400:
+            prGreen("[ ++ ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
+            if args.output:
+                output(output_path, c.status_code, check_url)
+    elif args.invalid:
+        if c.status_code >= 400:
+            prRed("[ -- ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
+            if args.output:
+                output(output_path, c.status_code, check_url)
+    elif args.all:
+        if 200 <= c.status_code < 400:
+            prGreen("[ ++ ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
+            if args.output:
+                output(output_path, c.status_code, check_url)
+        else:
+            prRed("[ -- ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
+            if args.output:
+                output(output_path, c.status_code, check_url)
+    else:
+        if 200 <= c.status_code < 400:
+            prGreen("[ ++ ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
+            if args.output:
+                output(output_path, c.status_code, check_url)
+        else:
+            prRed("[ -- ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
+            if args.output:
+                output(output_path, c.status_code, check_url)
+    
 
 def main():
 
-    parser = argparse.ArgumentParser(description="This is directory brute forcing tool --->> BRUDER V1.0 ")
-
-    parser.add_argument("--url", required=True, help="enter the url in the given format "
-                                                     "[ http://www.example.com or"
-                                                     " http://ip_address of the server ]")
-    parser.add_argument("-v", "--valid", action="store_true", help="This will only show valid addresses")
-    parser.add_argument("-i", "--invalid", action="store_true", help="This will only show invalid addresses")
-    parser.add_argument("-a", "--all", action="store_true", help="This will show all valid and invalid addresses")
-    parser.add_argument("--output", type=str, help="This will save the output to a entered file location"
-                                                   " format for path [/xyz/xyz/eg_word_list.txt]")
-
-    args = parser.parse_args()
-
-    url = args.url
-
-    output_path = args.output
-
-    d = datetime.now()
-
-    print("\n--------------")
-    print("BRUDER V1.0")
-    print("By HARDIK")
-    print("--------------")
+    
 
     print("\nWhich wordlist do you want to use for brute forcing directories")
     w = input("PRESS 1 for your own wordlist and 2 for default wordlist : ")
@@ -83,39 +119,21 @@ def main():
             with open(path, "r") as file:
                 for line in file:
                     for word in line.split():
-                         check_url = str(url) + "/" + str(word)
-                         c = requests.get(check_url)
-                         if args.valid:
-                             if 200 <= c.status_code < 400:
-                                 prGreen("[ ++ ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
-                                 if args.output:
-                                     output(output_path, c.status_code, check_url)
-                         elif args.invalid:
-                             if c.status_code >= 400:
-                                 prRed("[ -- ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
-                                 if args.output:
-                                     output(output_path, c.status_code, check_url)
-                         elif args.all:
-                             if 200 <= c.status_code < 400:
-                                 prGreen("[ ++ ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
-                                 if args.output:
-                                     output(output_path, c.status_code, check_url)
-                             else:
-                                 prRed("[ -- ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
-                                 if args.output:
-                                     output(output_path, c.status_code, check_url)
-                         else:
-                             if 200 <= c.status_code < 400:
-                                 prGreen("[ ++ ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
-                                 if args.output:
-                                     output(output_path, c.status_code, check_url)
-                             else:
-                                 prRed("[ -- ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
-                                 if args.output:
-                                     output(output_path, c.status_code, check_url)
+                        if args.extension:
+                            new=args.extension.split(',')
+                            for i in new:
+                                word=word+i
+                                Urlcheck(word)
+                        
+                        else:
+                            Urlcheck(word)
         except IOError:
             prRed("IO ERROR -->> Wordlist not found / Entered host is not valid")
             sys.exit()
+
+
+                        
+                   
 
     elif w == "2":
         try:
@@ -137,36 +155,15 @@ def main():
             with open("common.txt", "r") as file:
                 for line in file:
                     for word in line.split():
-                         check_url = str(url) + "/" + str(word)
-                         c = requests.get(check_url)
-                         if args.valid:
-                             if 200 <= c.status_code < 400:
-                                 prGreen("[ ++ ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
-                                 if args.output:
-                                     output(output_path, c.status_code, check_url)
-                         elif args.invalid:
-                             if c.status_code >= 400:
-                                 prRed("[ -- ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
-                                 if args.output:
-                                     output(output_path, c.status_code, check_url)
-                         elif args.all:
-                             if 200 <= c.status_code < 400:
-                                 prGreen("[ ++ ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
-                                 if args.output:
-                                     output(output_path, c.status_code, check_url)
-                             else:
-                                 prRed("[ -- ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
-                                 if args.output:
-                                     output(output_path, c.status_code, check_url)
-                         else:
-                             if 200 <= c.status_code < 400:
-                                 prGreen("[ ++ ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
-                                 if args.output:
-                                     output(output_path, c.status_code, check_url)
-                             else:
-                                 prRed("[ -- ] " + "[" + str(c.status_code) + "]" + " --- " + str(check_url))
-                                 if args.output:
-                                     output(output_path, c.status_code, check_url)
+                        if args.extension:
+                            new=args.extension.split(',')
+                            for i in new:
+                                word=word+i
+                                Urlcheck(word)
+                        else:
+                            Urlcheck(word)
+
+                        
 
         except IOError:
             prRed("IO ERROR -->> Entered host is not valid")
