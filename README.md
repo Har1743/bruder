@@ -25,7 +25,7 @@ And then just run using <br/>
 
 # Screenshot
 
-![](s.png)
+![](help.png)
 
 # Created by
 
