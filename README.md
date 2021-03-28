@@ -12,7 +12,9 @@ There is an inbuilt default wordlist which contains thousands of words which bru
 **--valid, -v :** This help you to know about all the valid responses.<br/>
 **--invalid, -i :** This help you to know about all the invalid responses.<br/>
 **--all, -a :** This help you to know about all the responses.<br/>
+**--entension, -e :** This help you to know about a particular type of extension file (can be single or multiple) the responses.<br/>
 **--output :** This will save all the output to a file of your desired location.<br/>
+
 
 # Usage 
 
