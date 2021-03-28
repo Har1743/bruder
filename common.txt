@@ -245,6 +245,7 @@ access-log.1
 accessories
 accommodation
 account
+accounts
 account_edit
 account_history
 accountants
