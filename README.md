@@ -26,7 +26,7 @@ And then just run using <br/>
 
 # Screenshot
 
-![](help.png)
+![](bruder_help.png)
 
 # Created by
 
